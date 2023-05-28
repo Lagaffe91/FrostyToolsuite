@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Configurations>MassEffect - Debug;MassEffect - Release;SWBF2 - Debug;SWBF2 - Release;GW2 - Debug;GW2 - Release</Configurations>
+    <Configurations>MassEffect - Debug;MassEffect - Release;SWBF2 - Debug;SWBF2 - Release;GW2 - Debug;GW2 - Release;MEC - Debug;MEC - Release</Configurations>
     <Platforms>x64</Platforms>
     <TargetFrameworks>net48</TargetFrameworks>
     <AssemblyTitle>LevelEditorPlugin</AssemblyTitle>
@@ -75,6 +75,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release - Final|net48|x64'">
     <DefineConstants>TRACE;MASS_EFFECT</DefineConstants>
     <OutputPath>bin\Release\Final\</OutputPath>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='MEC - Release|net48|x64'">
+    <DefineConstants>TRACE;MEC</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\Final\</OutputPath>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='MEC - Debug|net48|x64'">
+    <DefineConstants>TRACE;DEBUG;MEC</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>bin\Developer\Debug\</OutputPath>
   </PropertyGroup>
    
   <ItemGroup>
@@ -267,7 +280,7 @@
     </Compile>
     
     <Compile Remove="GameSpecific\starwarsbattlefrontii\**" Condition="'$(Configuration)' != 'SWBF2 - Debug' And '$(Configuration)' != 'SWBF2 - Release'" />
-    
+    <Compile Remove="GameSpecific\MirrorsEdgeCatalyst\**" Condition="'$(Configuration)' != 'MEC - Debug' And '$(Configuration)' != 'MEC - Release'" />
     <Compile Remove="GameSpecific\MassEffectAndromeda\**" Condition="'$(Configuration)' != 'MassEffect - Debug' And '$(Configuration)' != 'MassEffect - Release'" />
   </ItemGroup>
 
